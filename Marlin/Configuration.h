@@ -78,7 +78,7 @@
 #define SHOW_BOOTSCREEN
 
 // Show the bitmap in Marlin/_Bootscreen.h on startup.
-#define SHOW_CUSTOM_BOOTSCREEN
+//#define SHOW_CUSTOM_BOOTSCREEN
 #define BRAND_MP
 
 #ifdef BRAND_MP
@@ -1265,7 +1265,7 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-#define S_CURVE_ACCELERATION
+//#define S_CURVE_ACCELERATION
 
 //===========================================================================
 //============================= Z Probe Options =============================
@@ -1490,11 +1490,11 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 42, 54, -0.11 }
+#define NOZZLE_TO_PROBE_OFFSET { 42, 54, -0.13 } //fr4
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 10
+#define PROBING_MARGIN 2 //fr4
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_FEEDRATE (133*60)
@@ -1605,7 +1605,7 @@
 //#define DELAY_BEFORE_PROBING 200  // (ms) To prevent vibrations from triggering piezo sensors
 
 // Require minimum nozzle and/or bed temperature for probing
-#define PREHEAT_BEFORE_PROBING
+#define PREHEAT_BEFORE_PROBING //fr4
 #if ENABLED(PREHEAT_BEFORE_PROBING)
   #define PROBING_NOZZLE_TEMP 120   // (°C) Only applies to E0 at this time
   #define PROBING_BED_TEMP     40
@@ -1701,8 +1701,8 @@
 // @section geometry
 
 // The size of the printable area
-#define X_BED_SIZE 200
-#define Y_BED_SIZE 150
+#define X_BED_SIZE 200 //mp
+#define Y_BED_SIZE 150 //mp
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
@@ -1710,8 +1710,8 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 170
-#define Z_SAFE_MAX_POS	165
+#define Z_MAX_POS 170 //mp
+#define Z_SAFE_MAX_POS	165 //mp-fr4
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
@@ -1729,7 +1729,7 @@
  * Software Endstops
  *
  * - Prevent moves outside the set machine bounds.
- * - Individual axes can be disabled, if desired.
+ * - Individual axes can be disabled, if desired.et
  * - X and Y only apply to Cartesian robots.
  * - Use 'M211' to set software endstops on/off or report current state
  */
@@ -1891,7 +1891,7 @@
  * leveling immediately after G28.
  */
 //#define RESTORE_LEVELING_AFTER_G28
-#define ENABLE_LEVELING_AFTER_G28
+#define ENABLE_LEVELING_AFTER_G28 //fr4
 
 /**
  * Auto-leveling needs preheating
@@ -2228,17 +2228,17 @@
 //#define PREHEAT_1_TEMP_CHAMBER 0
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
-#define PREHEAT_3_LABEL       "PETG"
-#define PREHEAT_3_TEMP_HOTEND 240
-#define PREHEAT_3_TEMP_BED    90
-//#define PREHEAT_3_TEMP_CHAMBER 0
-#define PREHEAT_3_FAN_SPEED     0 // Value from 0 to 255
+#define PREHEAT_2_LABEL       "PLA+" //fr4
+#define PREHEAT_2_TEMP_HOTEND 205  //fr4
+#define PREHEAT_2_TEMP_BED    60 //fr4
+//#define PREHEAT_2_TEMP_CHAMBER //fr4
+#define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255  /fr4
 
-#define PREHEAT_2_LABEL       "ABS"
-#define PREHEAT_2_TEMP_HOTEND 240
-#define PREHEAT_2_TEMP_BED    100
-//#define PREHEAT_2_TEMP_CHAMBER 35
-#define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
+//#define PREHEAT_3_LABEL       "ABS"
+//#define PREHEAT_3_TEMP_HOTEND 240
+//#define PREHEAT_3_TEMP_BED    100
+//#define PREHEAT_3_TEMP_CHAMBER 35
+//#define PREHEAT_3_FAN_SPEED     0 // Value from 0 to 255
 
 // @section motion
 
@@ -2253,11 +2253,11 @@
  *    P1  Raise the nozzle always to Z-park height.
  *    P2  Raise the nozzle by Z-park amount, limited to Z_MAX_POS.
  */
-#define NOZZLE_PARK_FEATURE
+#define NOZZLE_PARK_FEATURE //mp
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z_raise }
-  #define NOZZLE_PARK_POINT { 180, 145, 20 }
+  #define NOZZLE_PARK_POINT { 180, 145, 20 }  //mp
   #define NOZZLE_PARK_MOVE          0   // Park motion: 0 = XY Move, 1 = X Only, 2 = Y Only, 3 = X before Y, 4 = Y before X
   #define NOZZLE_PARK_Z_RAISE_MIN   2   // (mm) Always raise Z by at least this distance
   #define NOZZLE_PARK_XY_FEEDRATE 100   // (mm/s) X and Y axes feedrate (also used for delta Z axis)
@@ -2491,7 +2491,7 @@
  * just remove some extraneous menu items to recover space.
  */
 //#define NO_LCD_MENUS
-#define SLIM_LCD_MENUS
+//#define SLIM_LCD_MENUS //fr4
 
 //
 // ENCODER SETTINGS
